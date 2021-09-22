@@ -1,16 +1,27 @@
 import { client } from "../../libs/client";
+import Image from "next/image";
+import Layout from "../../components/layout";
+import Container from "../../components/container";
+import DateFormatter from "../../components/date-formatter";
 
 export default function BlogId({ blog }) {
   return (
-    <main>
-      <h1>{blog.title}</h1>
-      <p>{blog.publishedAt}</p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog.body}`,
-        }}
-      />
-    </main>
+    <Layout>
+      <Container>
+        <main>
+          <h1 className="text-2xl md:text-3xl">{blog.title}</h1>
+          <p className="text-xs md:text-xs text-center">
+            <DateFormatter dateString={blog.publishedAt} />
+          </p>
+          <Image src={blog.thumbnail["url"]} width="300" height="200" alt="" />
+          <div
+            dangerouslySetInnerHTML={{
+              __html: `${blog.body}`,
+            }}
+          />
+        </main>
+      </Container>
+    </Layout>
   );
 }
 
