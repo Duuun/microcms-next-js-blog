@@ -1,17 +1,16 @@
 import Link from "next/link";
 import { client } from "../libs/client";
-import { chakra } from "@chakra-ui/react";
 
 export default function Home({ blog }) {
   return (
     <div>
       <ul>
         {blog.map((blog) => (
-          <chakra.li color="tomato" key={blog.id}>
+          <li key={blog.id}>
             <Link href={`/blog/${blog.id}`}>
               <a>{blog.title}</a>
             </Link>
-          </chakra.li>
+          </li>
         ))}
       </ul>
     </div>
