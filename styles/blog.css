@@ -1,0 +1,11 @@
+.container h1 {
+  text-align: center;
+}
+
+.container h2 {
+  font-weight: bold;
+  border-bottom: solid 3px;
+  position: relative;
+  padding: 0.3rem;
+  margin-bottom: 10px;
+}
